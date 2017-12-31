@@ -50,6 +50,12 @@ module.exports = {
       message: 'Use linting with ESLint?',
       default: true
     },
+    runner: {
+      type: 'confirm',
+      require: true,
+      message: 'Use unit test?',
+      default: true
+    },
   },
   helper: {
     deps (plugins) {
