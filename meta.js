@@ -29,9 +29,27 @@ module.exports = {
     style: {
       type: "list",
       message: "Select which style to install",
-      choices: ['sass', 'less', 'stylus'],
-      default: ['axios', 'vue-router', 'stylus']
-    }
+      choices: [
+        {
+          name: 'sass',
+          value: 'sass',
+        },
+        {
+          name: 'less',
+          value: 'less',
+        },
+        {
+          name: 'stylus',
+          value: 'stylus',
+        },
+      ]
+    },
+    eslint: {
+      type: 'confirm',
+      require: true,
+      message: 'Use linting with ESLint?',
+      default: true
+    },
   },
   helper: {
     deps (plugins) {

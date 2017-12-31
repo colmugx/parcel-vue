@@ -8,10 +8,28 @@
   "scripts": {
     "dev": "parcel -p 8080 index.html",
     "build": "parcel build index.html --public-url /"
+    {{#if test}}
+    "test": "jest"
+    {{/if}}
   },
   "dependencies": {
     "vue": "^2.5.11"
   },
+  {{#if test}}
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+    },
+    "testRegex": "(/tests/unit/specs/.*|\\.(test|spec))\\.(vue|js)$",
+    "mapCoverage": true
+  }
+  {{/if}}
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.0",
@@ -25,6 +43,14 @@
     {{#if_eq style "less"}}
     "less": "^2.7.3",
     {{/if_eq}}
+    {{#if test}}
+    "vue-jest": "^1.4.0",
+    "jest": "22.0.4",
+    "babel-jest": "22.0.4",
+    {{/if}}
+    {{#if eslint}}
+    "parcel-plugin-eslint": "^1.0.0"
+    {{/if}}
     "parcel-bundler": "^1.3.1",
     "parcel-plugin-vue": "^1.4.0",
   }
