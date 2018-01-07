@@ -6,11 +6,11 @@
   "license": "{{ license }}",
   "private": true,
   "scripts": {
-    "dev": "parcel -p 8080 index.html",
-    "build": "parcel build index.html --public-url /",
     {{#if runner}}
-    "test": "jest"
+    "test": "jest",
     {{/if}}
+    "dev": "parcel -p 8080 index.html",
+    "build": "parcel build index.html --public-url /"
   },
   "dependencies": {
     "vue": "^2.5.11"
